@@ -6,6 +6,7 @@ import Home from './Home/index.tsx'
 import Episode from './Episode/index.tsx'
 import Character from './Character/index.tsx'
 import Search from './Search/index.tsx'
+import Location from './Loacation/index.tsx'
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path:"/character/:characterID",
     element: <Character/>
+  },
+  {
+    path:"/location/:locationID",
+    element: <Location/>
   },
   {
     path:"/search",

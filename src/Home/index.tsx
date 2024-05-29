@@ -1,9 +1,11 @@
-import React from 'react'
+import { useEffect, useState } from "react";
+
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  const [data, setData] = useState();
 
-export default Home
+  useEffect(() => {});
+  return <div>Home</div>;
+};
+
+export default Home;

@@ -1,8 +1,10 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
 const Character = () => {
+    const {characterID} = useParams();
   return (
-    <div>Character</div>
+    <div>Character {characterID}</div>
   )
 }
 
