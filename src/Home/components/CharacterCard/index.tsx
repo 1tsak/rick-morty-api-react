@@ -1,7 +1,10 @@
+import { Link } from "react-router-dom";
 import Header from "../../../components/Header";
 import { Character } from "../../../utils/types";
+import StatusIndicator from "../../../components/StatusIndicator";
 
 const CharacterCard = ({
+  id,
   name,
   status,
   species,
@@ -15,14 +18,21 @@ const CharacterCard = ({
         <img className=" overflow-hidden  h-full w-full" src={image} alt="" />
       </div>
       <div className="info-section h-full p-3 text-white">
-        <h2 className="font-semibold text-2xl">{name}</h2>
-        <p className="text-sm">
+        <Link to={`/character/${id}`}>
+          <h2 className="font-semibold text-2xl">{name}</h2>
+        </Link>
+        <p className="text-sm flex items-center gap-2">
+          <StatusIndicator status={status} />
           {status}-{species}
         </p>
         <h2 className="mt-4 text-sm text-slate-400">Last Known Location:</h2>
-        <p className="text-slate-200">{location.name}</p>
+        <Link to={`/location/${id}`}>
+          <p>{location.name}</p>
+        </Link>
         <h2 className="mt-4 text-sm text-slate-400">First Seen In:</h2>
-        <p>{origin.name}</p>
+        <Link to={`/episode/${id}`}>
+          <p>{origin.name}</p>
+        </Link>
       </div>
     </div>
   );
