@@ -30,4 +30,6 @@ export interface Location {
     url: string;
     created: string;
   }
-  
+  export interface StatusIndicatorProp{
+    status:String
+}

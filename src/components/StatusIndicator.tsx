@@ -1,7 +1,4 @@
-
-interface StatusIndicatorProp{
-    status:String
-}
+import { StatusIndicatorProp } from "../utils/types";
 
 const StatusIndicator = ({status}:StatusIndicatorProp) => {
     const bgColor=  status === `Alive`?`rgb(85, 204, 68)`: status === 'Dead'?'rgb(214, 61, 46)':'rgb(158, 158, 158)';
