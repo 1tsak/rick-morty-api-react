@@ -22,14 +22,16 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="p-6 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-center gap-5 bg-[#272B33]">
-      {characterData && characterData.length > 0 ? (
-        characterData.map((character: any) => (
-          <CharacterCard {...character} key={character.id} />
-        ))
-      ) : (
-        <>No Characters</>
-      )}
+    <div className="flex flex-wrap bg-[#272B33] px-6 py-20 items-center justify-center">
+      <div className=" grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3  gap-6 ">
+        {characterData && characterData.length > 0 ? (
+          characterData.map((character: any) => (
+            <CharacterCard {...character} key={character.id} />
+          ))
+        ) : (
+          <>No Characters</>
+        )}
+      </div>
     </div>
   );
 };
