@@ -1,5 +1,3 @@
-import React from "react";
-
 const RickNMorty = () => {
   return (
     <div className="hero-image">

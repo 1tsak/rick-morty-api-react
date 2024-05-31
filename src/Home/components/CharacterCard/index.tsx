@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Character } from "../../../utils/types";
 import StatusIndicator from "../../../components/StatusIndicator";
 
-const CharacterCard = ({
+const CharacterCard:React.FC<Character> = ({
   id,
   name,
   status,
@@ -10,7 +10,7 @@ const CharacterCard = ({
   origin,
   location,
   image,
-}: Character) => {
+}) => {
   return (
     <div className="shadow-md rounded-lg bg-[#3C3E44] flex w-[600px] h-[220px] overflow-hidden object-cover m-auto">
       <div className="image-wrapper">
