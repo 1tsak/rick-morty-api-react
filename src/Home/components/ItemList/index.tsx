@@ -1,8 +1,6 @@
-import React from "react";
-import { Character, Episode, ItemListType } from "../../../utils/types";
+import { ItemListType } from "../../../utils/types";
 
 const ItemList = ({ itemList,itemComponent:ItemCard }:ItemListType) => {
-    console.log(ItemCard);
     
   return (
     <div className=" grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3  gap-6 ">
