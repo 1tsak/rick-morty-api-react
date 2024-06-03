@@ -1,3 +1,4 @@
+import Loading from "../../../components/Loading";
 import { ItemListType } from "../../../utils/types";
 
 const ItemList = ({ itemList,itemComponent:ItemCard }:ItemListType) => {
@@ -11,7 +12,7 @@ const ItemList = ({ itemList,itemComponent:ItemCard }:ItemListType) => {
         ))}
         </div>
       ) : (
-        <div className="text-center text-white">No Items</div>
+        <Loading/>
       )}
       </div>
   );
