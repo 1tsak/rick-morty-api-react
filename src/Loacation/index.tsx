@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Character } from "../utils/types";
 import { AppDispatch } from "../store/store";
 import axios from "axios";
-import { ALL_CHARACTERS_API, ALL_LOCATIONS_API } from "../utils/constants";
+import { ALL_CHARACTERS_API, } from "../utils/constants";
 import CharacterCard from "../Home/components/CharacterCard";
 import { PiTelevisionSimpleThin } from "react-icons/pi";
 import {
@@ -55,7 +55,7 @@ const Location = () => {
     }
   }, [location]);
   return (
-    <div className=" bg-slate-800 h-[90vh] overflow-hidden  px-6 py-20 items-center justify-center">
+    <div className=" bg-[#272B33] h-[90vh] overflow-hidden  px-6 py-20 items-center justify-center">
       {location && location.name ? (
         <div className="h-[70vh] flex flex-row gap-5">
           <div>
@@ -76,7 +76,7 @@ const Location = () => {
           </div>
           <div className="overflow-hidden h-fit ">
             <h2 className=" text-sm m-2 text-white">Residents:</h2>
-            <div className="max-h-[55vh] overflow-y-auto  flex-grow gap-2 grid grid-cols-2">
+            <div className="max-h-[60vh] overflow-y-auto  flex-grow gap-2 grid grid-cols-2">
               {characters && characters.length > 0 ?characters.map((character: Character) => (
                 <CharacterCard {...character} />
               )):<Loading/>}

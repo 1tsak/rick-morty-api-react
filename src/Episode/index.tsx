@@ -50,7 +50,7 @@ const Episode = () => {
   console.log(episodeID);
 
   return (
-    <div className=" bg-slate-800 h-[90vh] overflow-hidden  px-6 py-20 items-center justify-center">
+    <div className=" bg-[#272B33] h-[90vh] overflow-hidden  px-6 py-20 items-center justify-center">
       {episode && episode.name ? (
         <div className="h-[70vh] flex flex-row gap-5">
           <div>
@@ -69,7 +69,7 @@ const Episode = () => {
           </div>
           <div className="overflow-hidden h-fit ">
             <h2 className=" text-sm m-2 text-white">Characters Appeared:</h2>
-            <div className="max-h-[55vh] overflow-y-auto  flex-grow gap-2 grid grid-cols-2">
+            <div className="max-h-[60vh] overflow-y-auto  flex-grow gap-2 grid grid-cols-2">
               {characters && characters.length > 0 ? (
                 characters.map((character: Character) => (
                   <CharacterCard {...character} />

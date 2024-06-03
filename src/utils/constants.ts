@@ -1,7 +1,7 @@
 //////////// API URLs ////////////////////
 
 // BASE API URL
-const BASE_URL:string = import.meta.env.VITE_BASE_API_URL
+export const BASE_URL:string = import.meta.env.VITE_BASE_API_URL
 
 // Endpoints
 export const ALL_CHARACTERS_API:string = `${BASE_URL}/character`

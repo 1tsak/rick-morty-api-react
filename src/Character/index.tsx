@@ -52,7 +52,7 @@ const Character = () => {
   }, [character]);
 
   return (
-    <div className=" bg-slate-800 h-[90vh] overflow-hidden  px-6 py-20 items-center justify-center">
+    <div className=" bg-[#272B33] h-[90vh] overflow-hidden  px-6 py-20 items-center justify-center">
       {character && character.name ? (
         <div className="h-[70vh] flex flex-row gap-5">
           <div>
@@ -85,7 +85,7 @@ const Character = () => {
             <h2 className=" text-sm m-2 text-white">
               Episodes Appeared In:
             </h2>
-            <div className="max-h-[55vh] overflow-y-auto  flex-grow gap-2 grid grid-cols-2">
+            <div className="max-h-[60vh] overflow-y-auto  flex-grow gap-2 grid grid-cols-2">
               {episodes && episodes.length >0 ? episodes.map((episode: Episode) => (
                 <EpisodeCard {...episode} />
               )):<Loading/>}
