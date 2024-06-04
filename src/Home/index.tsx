@@ -26,6 +26,7 @@ import { ItemComponentProps, ItemListType } from "../utils/types";
 import EpisodeCard from "./components/EpisodeCard";
 import LocationCard from "./components/LocationCard";
 import Pagination from "../components/Pagination";
+import StatusIndicator from "../components/StatusIndicator";
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -111,7 +112,7 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <div className="flex flex-col gap-4 flex-wrap bg-[#272B33] pt-4 pb-6 py-14 items-center justify-center">
+      <div className="flex flex-col gap-4 flex-wrap bg-[#272B33]  w-screen pt-6 items-center justify-center">
         <>
           <div className="w-full flex justify-between px-24">
             <select
@@ -137,6 +138,21 @@ const Home = () => {
             />
           </div>
           <ItemList {...listConfig} />
+          <div className="bg-[#202329] w-full h-[400px] text-slate-400 text-xs font-semibold flex flex-col justify-center items-center gap-2">
+            <div className="flex gap-2 ">
+              <p>
+                CHARACTERS: 826
+              </p>
+              <p >
+                LOCATION: 126
+              </p>
+              <p >
+                CHARACTERS: 51
+              </p>
+            </div>
+            <div>SERVER STATUS <StatusIndicator status={"Alive"}/></div>
+            <p> Created with &#9829; by Aakash Jha</p>
+          </div>
         </>
       </div>
     </>
