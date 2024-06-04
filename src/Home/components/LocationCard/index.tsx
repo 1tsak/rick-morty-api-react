@@ -6,7 +6,7 @@ import { FaChevronRight } from 'react-icons/fa'
 
 const LocationCard:React.FC<Location> = ({id,name,type,dimension}) => {
   return (
-    <div className="shadow-md rounded-lg bg-[#3C3E44] flex items-center p-5 gap-5 w-[600px] h-[220px] overflow-hidden object-cover m-auto">
+    <div className="shadow-md rounded-lg bg-[#3C3E44] flex items-center p-5 gap-5 w-[600px] h-[220px] overflow-hidden object-cover animate-slideIn m-auto">
       <IoLocationSharp  color="#2e2e2e" size={100} />
       <div className="text-white flex flex-col flex-1">
         <h2 className="text-slate-400 text-sm">{dimension}</h2>
