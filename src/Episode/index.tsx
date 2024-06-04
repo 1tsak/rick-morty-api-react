@@ -57,7 +57,7 @@ const Episode = () => {
             <h2 className="text-center text-sm m-2 text-white">
               Episode Info:
             </h2>
-            <div className="p-6 shadow min-w-[400px] flex flex-col items-center rounded-xl gap-5 bg-slate-100">
+            <div className="p-2 shadow min-w-[350px] flex flex-col items-center rounded-xl gap-5 bg-slate-200">
               <PiTelevisionSimpleThin color="#525252" size={150} />
               <div className="p-2 flex flex-col justify-center">
                 <p className="text-sm flex items-center">{episode.episode}</p>
@@ -69,7 +69,7 @@ const Episode = () => {
           </div>
           <div className="overflow-hidden h-fit ">
             <h2 className=" text-sm m-2 text-white">Characters Appeared:</h2>
-            <div className="max-h-[60vh] overflow-y-auto  flex-grow gap-2 grid grid-cols-2">
+            <div className="max-h-[70vh] overflow-y-auto  flex-grow gap-2 grid grid-cols-2 2xl:grid-cols-3">
               {characters && characters.length > 0 ? (
                 characters.map((character: Character) => (
                   <CharacterCard {...character} />

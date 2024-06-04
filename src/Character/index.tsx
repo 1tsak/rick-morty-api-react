@@ -59,7 +59,7 @@ const Character = () => {
             <h2 className="text-center text-sm m-2 text-white">
               Character Info:
             </h2>
-            <div className="p-6 shadow min-w-[400px] flex flex-col items-center rounded-xl gap-5 bg-slate-100">
+            <div className="p-2 shadow min-w-[350px] flex flex-col items-center rounded-xl gap-5 bg-slate-200">
               <img
                 src={character.image}
                 className="rounded-md h-32 w-32 object-cover"
@@ -85,7 +85,7 @@ const Character = () => {
             <h2 className=" text-sm m-2 text-white">
               Episodes Appeared In:
             </h2>
-            <div className="max-h-[60vh] overflow-y-auto  flex-grow gap-2 grid grid-cols-2">
+            <div className="max-h-[70vh] overflow-y-auto  flex-grow gap-2 grid grid-cols-2 2xl:grid-cols-3">
               {episodes && episodes.length >0 ? episodes.map((episode: Episode) => (
                 <EpisodeCard {...episode} />
               )):<Loading/>}
