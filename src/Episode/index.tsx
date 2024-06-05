@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import { fetchEpisodeInfo, selectEpisodeInfo } from "../features/episodeSlice";
 import { useEffect, useState } from "react";
 import { Character } from "../utils/types";
@@ -9,6 +8,8 @@ import { ALL_CHARACTERS_API } from "../utils/constants";
 import CharacterCard from "../Home/components/CharacterCard";
 import { PiTelevisionSimpleThin } from "react-icons/pi";
 import Loading from "../components/Loading";
+import { Link, useParams } from "react-router-dom";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const Episode = () => {
   const { episodeID } = useParams();
@@ -50,9 +51,16 @@ const Episode = () => {
   console.log(episodeID);
 
   return (
-    <div className=" bg-[#272B33] h-[90vh] overflow-hidden  px-6 py-20 items-center justify-center">
+    <div className=" bg-[#272B33] h-screen overflow-hidden flex flex-col  px-6 py-10 ">
+      <Link className="w-fit" to={"/"}>
+        <IoMdArrowRoundBack
+          className="cursor-pointer"
+          color="white"
+          size={50}
+        />
+      </Link>
       {episode && episode.name ? (
-        <div className="h-[70vh] flex flex-row gap-5">
+        <div className="h-full flex flex-row gap-5">
           <div>
             <h2 className="text-center text-sm m-2 text-white">
               Episode Info:
@@ -67,9 +75,9 @@ const Episode = () => {
               </div>
             </div>
           </div>
-          <div className="overflow-hidden h-fit ">
+          <div className="overflow-hidden h-full ">
             <h2 className=" text-sm m-2 text-white">Characters Appeared:</h2>
-            <div className="max-h-[70vh] overflow-y-auto  flex-grow gap-2 grid grid-cols-2 2xl:grid-cols-3">
+            <div className="h-full overflow-y-scroll gap-2 grid grid-cols-2 2xl:grid-cols-3">
               {characters && characters.length > 0 ? (
                 characters.map((character: Character) => (
                   <CharacterCard {...character} />
@@ -80,7 +88,9 @@ const Episode = () => {
             </div>
           </div>
         </div>
-      ):<Loading/>}
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 };

@@ -1,6 +1,4 @@
-// searchSlice.ts
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
-
 import axios from 'axios';
 import { RootState } from '../store/store';
 import { BASE_URL } from '../utils/constants';
@@ -17,28 +15,29 @@ interface SearchState {
 
 const initialState: SearchState = {
   query: '',
-  type: 'character',
-  status: '',
-  gender: '',
+  type: 'character', // default type
+  status: 'none',
+  gender: 'none',
   results: [],
   loading: false,
   error: null,
 };
+
 interface FetchSearchResultsParams {
-    type: string;
-    query: string;
-    status: string;
-    gender: string;
-  }
+  query: string;
+  type: string;
+  status: string;
+  gender: string;
+}
 
 // Async thunk for fetching search results
 export const fetchSearchResults = createAsyncThunk(
   'search/fetchSearchResults',
   async (params: FetchSearchResultsParams) => {
-    const { type, query, status, gender } = params;
+    const { query, type, status, gender } = params;
     let url = `${BASE_URL}/${type}/?name=${query}`;
-    if (status) url += `&status=${status}`;
-    if (gender) url += `&gender=${gender}`;
+    if (status !== 'none') url += `&status=${status}`;
+    if (gender !== 'none') url += `&gender=${gender}`;
     const response = await axios.get(url);
     return response.data.results;
   }

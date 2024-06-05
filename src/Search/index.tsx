@@ -10,10 +10,9 @@ const Search = () => {
     (state: RootState) => state.search
   );
 
-
   if (loading) {
     return (
-      <div className="search-results bg-[#272B33] h-[90vh] overflow-hidden flex flex-col items-center justify-center">
+      <div className="search-results bg-[#272B33] h-screen overflow-hidden flex flex-col items-center justify-center">
         <h2 className="text-white m-2">Search Results</h2>
         <Loading />
       </div>
@@ -21,14 +20,17 @@ const Search = () => {
   }
 
   return (
-    <div className="search-results bg-[#272B33] h-[90vh] overflow-hidden flex flex-col items-center justify-center">
+    <div className="search-results bg-[#272B33] h-full overflow-hidden flex flex-col p-2 items-center justify-center">
       <h2 className="text-white m-2">Search Results</h2>
       {results && results.length > 0 ? (
-        <div className="h-[80vh] overflow-y-auto">
-          <div className=" grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 min-w-[1225px] gap-6 ">
-            {type==="character" && results.map((item:any)=><CharacterCard {...item}/>)}
-            {type==="episode" && results.map((item:any)=><EpisodeCard {...item}/>)}
-            {type==="location" && results.map((item:any)=><LocationCard {...item}/>)}
+        <div className="h-screen overflow-y-auto">
+          <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 min-w-[1225px] gap-6">
+            {type === "character" &&
+              results.map((item: any) => <CharacterCard key={item.id} {...item} />)}
+            {type === "episode" &&
+              results.map((item: any) => <EpisodeCard key={item.id} {...item} />)}
+            {type === "location" &&
+              results.map((item: any) => <LocationCard key={item.id} {...item} />)}
           </div>
         </div>
       ) : (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { AppDispatch } from "../store/store";
 import {
   fetchCharacterInfo,
@@ -12,6 +12,7 @@ import axios from "axios";
 import { ALL_EPISODES_API } from "../utils/constants";
 import EpisodeCard from "../Home/components/EpisodeCard";
 import Loading from "../components/Loading";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const Character = () => {
   const { characterID } = useParams();
@@ -52,9 +53,16 @@ const Character = () => {
   }, [character]);
 
   return (
-    <div className=" bg-[#272B33] h-[90vh] overflow-hidden  px-6 py-20 items-center justify-center">
+    <div className=" bg-[#272B33] h-screen overflow-hidden flex flex-col  px-6 py-10">
+      <Link to={"/"}>
+        <IoMdArrowRoundBack
+          className="cursor-pointer"
+          color="white"
+          size={50}
+        />
+      </Link>
       {character && character.name ? (
-        <div className="h-[70vh] flex flex-row gap-5">
+        <div className="h-full flex flex-row gap-5">
           <div>
             <h2 className="text-center text-sm m-2 text-white">
               Character Info:
@@ -81,18 +89,20 @@ const Character = () => {
               </div>
             </div>
           </div>
-          <div className="overflow-hidden h-fit ">
-            <h2 className=" text-sm m-2 text-white">
-              Episodes Appeared In:
-            </h2>
-            <div className="max-h-[70vh] overflow-y-auto  flex-grow gap-2 grid grid-cols-2 2xl:grid-cols-3">
-              {episodes && episodes.length >0 ? episodes.map((episode: Episode) => (
-                <EpisodeCard {...episode} />
-              )):<Loading/>}
+          <div className="overflow-hidden h-full ">
+            <h2 className=" text-sm m-2 text-white">Episodes Appeared In:</h2>
+            <div className="h-full overflow-y-scroll  gap-2 grid grid-cols-2 2xl:grid-cols-3">
+              {episodes && episodes.length > 0 ? (
+                episodes.map((episode: Episode) => <EpisodeCard {...episode} />)
+              ) : (
+                <Loading />
+              )}
             </div>
           </div>
         </div>
-      ):<Loading/>}
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 };
