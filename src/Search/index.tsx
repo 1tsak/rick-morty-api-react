@@ -20,7 +20,7 @@ const Search = () => {
   }
 
   return (
-    <div className="search-results bg-[#272B33] h-full overflow-hidden flex flex-col p-2 items-center justify-center">
+    <div className="search-results bg-[#272B33] h-screen overflow-hidden flex flex-col p-2 items-center justify-center">
       <h2 className="text-white m-2">Search Results</h2>
       {results && results.length > 0 ? (
         <div className="h-screen overflow-y-auto">

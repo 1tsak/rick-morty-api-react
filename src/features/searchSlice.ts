@@ -72,6 +72,7 @@ const searchSlice = createSlice({
       })
       .addCase(fetchSearchResults.rejected, (state, action) => {
         state.loading = false;
+        state.results = [];
         state.error = action.error.message || 'Failed to fetch search results';
       });
   },
