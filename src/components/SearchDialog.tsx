@@ -51,7 +51,8 @@ const SearchDialog = () => {
       (query && query !== previousQuery.current.query) ||
       (status && status !== previousQuery.current.status) ||
       (gender && gender !== previousQuery.current.gender) ||
-      (type && type !== previousQuery.current.type)
+      (type && type !== previousQuery.current.type) ||
+      (location.pathname !== "/search")
     ) {
       previousQuery.current = { query, status, gender, type };
       dispatch(fetchSearchResults({ query, status, gender, type }));
